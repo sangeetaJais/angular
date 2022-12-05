@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h4 class="text-center my-4">API DATA LIST</h4>
+      <div class="card">
+        <table class="table">
+          <thead class="thead-light">
+            <tr>
+              <th scope="col">DateTime</th>
+              <th scope="col">Open</th>
+              <th scope="col">High</th>
+              <th scope="col">Low</th>
+              <th scope="col">Close</th>
+              <th scope="col">Volume</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let key of Objectkeys(tableList) |  paginate: { itemsPerPage: 10, currentPage: p }">
+              <td>{{ key }}</td>
+              <td>{{ tableList[key]["1. open"] }}</td>
+              <td>{{ tableList[key]["2. high"] }}</td>
+              <td>{{ tableList[key]["3. low"] }}</td>
+              <td>{{ tableList[key]["4. close"] }}</td>
+              <td>{{ tableList[key]["5. volume"] }}</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="pagination d-flex justify-content-end mt-3">
+          <pagination-controls (pageChange)="p = $event"></pagination-controls>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</div>
